@@ -1,0 +1,48 @@
+.principal {
+    padding: 25px;
+}
+
+.principal-form {
+    width: 60%;
+}
+
+.acciones {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    padding-bottom: 0;
+}
+
+.acciones > div {
+	display:flex;
+    flex-direction: row;
+}
+
+.acciones > div > form {
+	margin-left: 15px;
+}
+
+.acciones-renglon {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.acciones-renglon > div {
+    margin-right: 15px;
+} 
+
+.acciones-renglon > a {
+    margin-right: 15px;
+} 
+
+.acciones-renglon > form > button {
+    margin-right: 15px;
+} 
+
+.menu-button {
+	color: #fff;
+}
