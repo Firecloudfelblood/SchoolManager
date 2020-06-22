@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 
+<%@page import="net.tecgurus.schoolmanager.model.Alumno" %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,7 +19,7 @@ pageEncoding="UTF-8"%>
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
     <title>Alumnos</title>
   </head>
   <body>
@@ -43,13 +45,14 @@ pageEncoding="UTF-8"%>
         </div>
       </nav>
     </div>
-
+	
+    <% Alumno alumno =(Alumno) request.getAttribute("alumno"); %>
     <!-- OBTEN EL LA INFORMACIÓN DEL ALUMNO CONSULTADA DE LA BASE DE DATOS -->
 
     <!-- Controles -->
     <div class="container acciones">
       <!-- AGREGA EL NOMBRE DEL USUARIO ENTRE LAS ETIQUETAS <p></p> -->
-      <p class="flow-text">Joaquin Coronado Ramirez</p>
+      <p class="flow-text"><%= alumno.getName() %></p>
       <div>
         <!-- AGREGA LA URL DE TU SERVLET EN EL CAMPO ACTTION -->
         <form action="/" method="">
@@ -60,7 +63,7 @@ pageEncoding="UTF-8"%>
           </button>
         </form>
         <!-- AGREGA LA URL DE TU SERVLET EN EL CAMPO ACTTION -->
-        <form action="/" method="">
+        <form action="AlumnoController" method="get">
           <button
             class="waves-effect teal waves-light btn btn-large btn-floating"
           >
@@ -70,7 +73,7 @@ pageEncoding="UTF-8"%>
           <input type="hidden" name="accion" value="redirectEditarAlumno" />
           <!--ESTE ES UN ATRIBUTO OCULTO, LO RECUPERAS EN TU SERVLET CON request.getParameter("idAlumno") -->
           <!--AGREGA EL ID DEL ALUMNO EN EL CAMPO value-->
-          <input type="hidden" name="idAlumno" value="" />
+          <input type="hidden" name="idAlumno" value="<%=alumno.getId() %>" />
         </form>
       </div>
     </div>
@@ -86,21 +89,21 @@ pageEncoding="UTF-8"%>
               <div class="col s12">
                 <label for="name">Nombre</label>
                 <!-- AGREGA EL NOMBRE DEL USUARIO ENTRE LAS ETIQUETAS <p></p> -->
-                <p id="name">Joaquin Coronado Ramírezs</p>
+                <p id="name"><%=alumno.getName() %></p>
               </div>
             </div>
             <div class="row">
               <div class="col s12">
                 <label for="email">Email</label>
                 <!-- AGREGA EL EMAIL DEL USUARIO ENTRE LAS ETIQUETAS <p></p> -->
-                <p id="email">joaquin@tecgurus.io</p>
+                <p id="email"><%=alumno.getEmail() %></p>
               </div>
             </div>
             <div class="row">
               <div class="col s12">
                 <label for="age">Edad</label>
                 <!-- AGREGA LA EDAD DEL USUARIO ENTRE LAS ETIQUETAS <p></p> -->
-                <p id="age">25</p>
+                <p id="age"><%=alumno.getEdad() %></p>
               </div>
             </div>
           </div>
@@ -109,7 +112,11 @@ pageEncoding="UTF-8"%>
             <div class="col s12">
               <label for="gender">Genero</label>
               <!-- USA EL CAMPO genero DEL USUARIO PARA MOSTRAR hombre o mujer SEGUN  SEA EL CASO -->
-              <p id="gender">Hombre</p>
+              <%if(alumno.getGenero() == 'm'){ %>
+              	<p id="gender">Hombre</p>
+              <% } else{ %>
+              	<p id="gender">Mujer</p>
+              	<%} %>
             </div>
           </div>
         </div>
@@ -194,6 +201,6 @@ pageEncoding="UTF-8"%>
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>

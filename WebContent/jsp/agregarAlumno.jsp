@@ -17,7 +17,7 @@ pageEncoding="UTF-8"%>
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
     <title>Alumnos</title>
   </head>
   <body>
@@ -61,7 +61,7 @@ pageEncoding="UTF-8"%>
     <div class="container principal">
       <div class="row principal-form">
         <!-- AGREGA LA URL DE TU SERVLET EN EL CAMPO ACTTION -->
-        <form class="col s12" action="/" method="">
+        <form class="col s12" action="AlumnoController" method="post">
           <div class="row">
             <div class="input-field col s12">
               <!-- RECUPERAS EL VALOR DE ESTE CAMPO USANDO request.getParameter("nombre") EN TU SERVLET -->
@@ -113,6 +113,6 @@ pageEncoding="UTF-8"%>
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>

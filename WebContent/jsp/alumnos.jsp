@@ -51,14 +51,14 @@ pageEncoding="UTF-8"%>
       <p class="flow-text">Alumnos</p>
 
       <!-- AGREGA LA URL DE TU SERVLET EN EL CAMPO ACTTION -->
-      <form action="/" method="">
+      <form action="AlumnoController" method="get">
         <button
           class="waves-effect teal waves-light btn btn-large btn-floating"
         >
           <i class="material-icons">add</i>
         </button>
         <!--ESTE ES UN ATRIBUTO OCULTO, LO RECUPERAS EN TU SERVLET CON request.getParameter("accion") -->
-        <input type="hidden" name="accion" value="" />
+        <input type="hidden" name="accion" value="redirectAgregarAlumno" />
       </form>
     </div>
 
@@ -85,7 +85,7 @@ pageEncoding="UTF-8"%>
 	            <td>
 	              <div class="acciones-renglon">
 	                <!-- AGREGA LA URL DE TU SERVLET EN EL CAMPO ACTTION -->
-	                <form action="/" method="">
+	                <form action="AlumnoController" method="get">
 	                  <button class="waves-effect waves-light btn btn-floating">
 	                    <i class="material-icons">remove_red_eye</i>
 	                  </button>
@@ -96,9 +96,9 @@ pageEncoding="UTF-8"%>
 	                  />
 	                  <!--ESTE ES UN ATRIBUTO OCULTO, LO RECUPERAS EN TU SERVLET CON request.getParameter("idAlumno") -->
 	                  <!--AGREGA EL ID DEL ALUMNO EN EL CAMPO value-->
-	                  <input type="hidden" name="idAlumno" value="" />
+	                  <input type="hidden" name="idAlumno" value="<%=alumno.getId() %>" />
 	                </form>
-	                <form action="/alumnos" method="post">
+	                <form action="AlumnoController" method="post">
 	                  <button class="waves-effect waves-light btn btn-floating">
 	                    <i class="material-icons">delete</i>
 	                  </button>
@@ -106,7 +106,7 @@ pageEncoding="UTF-8"%>
 	                  <input type="hidden" name="accion" value="eliminarAlumno" />
 	                  <!--ESTE ES UN ATRIBUTO OCULTO, LO RECUPERAS EN TU SERVLET CON request.getParameter("idAlumno") -->
 	                  <!--AGREGA EL ID DEL ALUMNO EN EL CAMPO value-->
-	                  <input type="hidden" name="idAlumno" value="" />
+	                  <input type="hidden" name="idAlumno" value="<%=alumno.getId() %>" />
 	                </form>
 	              </div>
 	            </td>
